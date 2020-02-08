@@ -50,7 +50,7 @@ module.exports = class MenEater extends LiveForm {
         var aaaaa = this.chooseCell(2);
         var predatorCell = this.chooseCell(4);
         var final1 = predatorCells.concat(aaaaa);
-        var final2 = aaaaa.concat(predatorCell);
+        var final2 = final1.concat(predatorCell);
 
         var coord = random(final2);
         

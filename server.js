@@ -21,7 +21,7 @@ panteraArr = [];
 matrix = [];
 grassHashiv = 0;
 weather = "";
-var cound = 0;
+ cound = 0;
 //! Setting global arrays  -- END
 
 
@@ -76,7 +76,7 @@ function matrixGenerator(matrixSize, grass, grassEater, predator, men, menEater,
         matrix[customY][customX] = 8;
     }
 }
-matrixGenerator(20, 1, 4, 1, 1, 1, 1);
+matrixGenerator(40, 1, 4, 1, 1, 1, 1);
 //! Creating MATRIX -- END
 
 
@@ -113,11 +113,12 @@ function creatingObjects() {
                 var men = new Men(x, y);
                 menArr.push(men);
                 
-            }else if (matrix[y][x] == 5) {
+            }
+            else if (matrix[y][x] == 5) {
                 var menEater = new MenEater(x, y);
                 menEaterArr.push(menEater);
                 
-            }else if (matrix[y][x] == 6) {
+            } else if (matrix[y][x] == 6) {
                 var pantera = new Pantera(x, y);
                 panteraArr.push(pantera);
                 
@@ -129,13 +130,14 @@ creatingObjects();
 
 function game() {
     cound++
-    if(cound > 0 && cound <10){
+    if(cound >= 0 && cound <=20){
         weather = "summer";
-    } else if(cound > 10 && cound <20){
+    } else if(cound > 20 && cound <=40){
         weather = "autumn";
-    }else if(cound > 20 && cound <30){
+    }else if(cound > 40 && cound <=60){
         weather = "winter";
-    }else if(cound > 30 && cound <40){
+    }else if(cound > 60 && cound <80
+        ){
         weather = "spring";
     }else{
         cound = 0;
@@ -184,4 +186,4 @@ function game() {
 
 
 
-setInterval(game, 1000)
+setInterval(game, 300)

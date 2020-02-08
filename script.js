@@ -4,7 +4,7 @@ function setup() {
 
     var socket = io();
 
-    var side = 30;
+    var side = 15;
 
     var matrix = [];
 
@@ -17,7 +17,7 @@ function setup() {
     socket.on("data", drawCreatures);
 
     function drawCreatures(data) {
-        console.log(data.weather)
+        weather = data.weather;
         //! after getting data pass it to matrix variable
         matrix = data.matrix;
         grassCountElement.innerText = data.grassCounter;
@@ -34,9 +34,9 @@ function setup() {
                     if(data.weather == "summer"){
                         fill("green");
                     }else if(data.weather == "autumn"){
-                        fill("#caedab");
+                        fill("#f2a60c");
                     }else if(data.weather == "winter"){
-                        fill("#ecffdb");
+                        fill("white");
                     } else if(data.weather == "spring"){
                         fill("#8dff26");
                     } 
@@ -51,12 +51,14 @@ function setup() {
                     fill('red');
                     rect(j * side, i * side, side, side);
                 } else if (matrix[i][j] == 4) {
-                    fill('#ffe387');
+                    fill('red');
                     rect(j * side, i * side, side, side);
-                } else if (matrix[i][j] == 5) {
+                } 
+                else if (matrix[i][j] == 5) {
                     fill('#2200ff');
                     rect(j * side, i * side, side, side);
-                }else if (matrix[i][j] == 6) {
+                }
+                else if (matrix[i][j] == 6) {
                     fill('black');
                     rect(j * side, i * side, side, side);
                 }
